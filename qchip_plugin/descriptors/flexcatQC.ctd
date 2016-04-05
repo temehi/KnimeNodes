@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool name="FlexcatQC" version="1.0.0 [31ccd8d]" docurl="http://www.seqan.de" category="NGS Quality Control" >
+	<executableName>flexcatQC</executableName>
+	<description>The SeqAn Quality Control Toolkit of Flexcat.</description>
+	<manual>This program is a sub-routine of Flexcat (a new implementation and extension of the original flexbar [1]) and can be used for quality controlling of reads.
+[1] Dodt, M.; Roehr, J.T.; Ahmed, R.; Dieterich, C.  FLEXBAR   Flexible Barcode and Adapter Processing for Next-Generation Sequencing Platforms. Biology 2012, 1, 895-905.
+</manual>
+	<cli>
+		<clielement optionIdentifier="--showSpeed" isList="false">
+			<mapping referenceName="flexcatQC.showSpeed" />
+		</clielement>
+		<clielement optionIdentifier="--writeStats" isList="false">
+			<mapping referenceName="flexcatQC.writeStats" />
+		</clielement>
+		<clielement optionIdentifier="--records" isList="false">
+			<mapping referenceName="flexcatQC.records" />
+		</clielement>
+		<clielement optionIdentifier="--noQualities" isList="false">
+			<mapping referenceName="flexcatQC.noQualities" />
+		</clielement>
+		<clielement optionIdentifier="--ordered" isList="false">
+			<mapping referenceName="flexcatQC.ordered" />
+		</clielement>
+		<clielement optionIdentifier="--reads" isList="false">
+			<mapping referenceName="flexcatQC.reads" />
+		</clielement>
+		<clielement optionIdentifier="--threads" isList="false">
+			<mapping referenceName="flexcatQC.threads" />
+		</clielement>
+		<clielement optionIdentifier="--output" isList="false">
+			<mapping referenceName="flexcatQC.output" />
+		</clielement>
+		<clielement optionIdentifier="--noInfo" isList="false">
+			<mapping referenceName="flexcatQC.noInfo" />
+		</clielement>
+		<clielement optionIdentifier="--finalMinLength" isList="false">
+			<mapping referenceName="flexcatQC.finalMinLength" />
+		</clielement>
+		<clielement optionIdentifier="--finalLength" isList="false">
+			<mapping referenceName="flexcatQC.finalLength" />
+		</clielement>
+		<clielement optionIdentifier="--quality" isList="false">
+			<mapping referenceName="flexcatQC.quality" />
+		</clielement>
+		<clielement optionIdentifier="--length" isList="false">
+			<mapping referenceName="flexcatQC.length" />
+		</clielement>
+		<clielement optionIdentifier="--method" isList="false">
+			<mapping referenceName="flexcatQC.method" />
+		</clielement>
+		<clielement optionIdentifier="--tag" isList="false">
+			<mapping referenceName="flexcatQC.tag" />
+		</clielement>
+		<!-- Following clielements are arguments. You should consider providing a help text to ease understanding. -->
+		<clielement optionIdentifier="" isList="true">
+			<mapping referenceName="flexcatQC.argument-0" />
+		</clielement>
+	</cli>
+	<PARAMETERS version="1.6.2" xsi:noNamespaceSchemaLocation="http://open-ms.sourceforge.net/schemas/Param_1_6_2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<NODE name="flexcatQC" description="The SeqAn Quality Control Toolkit of Flexcat.">
+			<ITEM name="showSpeed" value="false" type="string" description="Show speed in base pairs per second." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="writeStats" value="false" type="string" description="Write statistics into a file" restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="records" value="1000" type="int" description="Number of records to be read in one run. Adjust this so that one batch of read can fit into your CPU cache." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="noQualities" value="false" type="string" description="Force .fa format for output files." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="ordered" value="false" type="string" description="Keep reads in order. Needs -r 1 option to work properly." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="reads" value="" type="int" description="Process only first n reads." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="threads" value="1" type="int" description="Number of threads used." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="output" value="" type="output-file" description="Name of the output file." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="false" advanced="false" />
+			<ITEM name="noInfo" value="false" type="string" description="Don&apos;t print paramter overview to console." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="finalMinLength" value="" type="int" description="Deletes read (and mate) if on of them is shorter than the given value after the complete worflow." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="finalLength" value="0" type="int" description="Trims reads to desired length after the complete workflow." restrictions="0:" required="false" advanced="false" />
+			<ITEM name="quality" value="" type="int" description="Quality threshold for read trimming." restrictions="0:40" required="false" advanced="false" />
+			<ITEM name="length" value="1" type="int" description="Minimum read length after trimming. Shorter reads will be substituted by a single N or removed if the paired read is too short as well." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="method" value="WIN" type="string" description="Method for trimming reads." restrictions="WIN,BWA,TAIL" required="false" advanced="false" />
+			<ITEM name="tag" value="false" type="string" description="Tags IDs of sequences which were quality-trimmed." restrictions="true,false" required="false" advanced="false" />
+			<ITEMLIST name="argument-0"  type="input-file" description="Either one (single-end) or two (paired-end) read files." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.embl,*.embl.bgzf,*.embl.gz,*.embl.bz2,*.gbk,*.gbk.bgzf,*.gbk.gz,*.gbk.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="true" advanced="false" />
+		</NODE>
+	</PARAMETERS>
+</tool>

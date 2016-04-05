@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool name="Nexcat" version="1.0.0 [31ccd8d]" docurl="http://www.seqan.de" category="ChIP Peak Calling" >
+	<executableName>nexcat</executableName>
+	<description>Preprocessing Pipeline for ChIP-Seq/ChIP-Nexus data</description>
+	<manual>nexcat-Preprocessing Pipeline for Chip-Nexus data
+(c) Copyright 2015 by Benjamin Menkuec.
+</manual>
+	<cli>
+		<clielement optionIdentifier="--output-prefix" isList="false">
+			<mapping referenceName="nexcat.output-prefix" />
+		</clielement>
+		<clielement optionIdentifier="--cluster size" isList="false">
+			<mapping referenceName="nexcat.cluster size" />
+		</clielement>
+		<clielement optionIdentifier="--bedGraph" isList="false">
+			<mapping referenceName="nexcat.bedGraph" />
+		</clielement>
+		<clielement optionIdentifier="--outputArtifacts" isList="false">
+			<mapping referenceName="nexcat.outputArtifacts" />
+		</clielement>
+		<clielement optionIdentifier="--randomSplit" isList="false">
+			<mapping referenceName="nexcat.randomSplit" />
+		</clielement>
+		<clielement optionIdentifier="--records" isList="false">
+			<mapping referenceName="nexcat.records" />
+		</clielement>
+		<clielement optionIdentifier="--filterChromosomes" isList="false">
+			<mapping referenceName="nexcat.filterChromosomes" />
+		</clielement>
+		<!-- Following clielements are arguments. You should consider providing a help text to ease understanding. -->
+		<clielement optionIdentifier="" isList="true">
+			<mapping referenceName="nexcat.argument-0" />
+		</clielement>
+	</cli>
+	<PARAMETERS version="1.6.2" xsi:noNamespaceSchemaLocation="http://open-ms.sourceforge.net/schemas/Param_1_6_2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<NODE name="nexcat" description="Preprocessing Pipeline for ChIP-Seq/ChIP-Nexus data">
+			<ITEM name="output-prefix" value="" type="output-prefix" description="Prefix for all output files." supported_formats="*.*" required="false" advanced="false" />
+			<ITEM name="cluster size" value="0" type="int" description="Minimum number of mapped reads at the same position" restrictions="0:" required="false" advanced="false" />
+			<ITEM name="bedGraph" value="false" type="string" description="Create a BedGraph file" restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="outputArtifacts" value="false" type="string" description="Write PCR artifacts to BAM file" restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="randomSplit" value="false" type="string" description="Split output randomly into two files" restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="records" value="10000" type="int" description="Number of records to be read in one run." restrictions="10:" required="false" advanced="false" />
+			<ITEM name="filterChromosomes" value="" type="string" description="Regular expression to remove chromosomes" required="false" advanced="false" />
+			<ITEMLIST name="argument-0"  type="input-file" description="SAM or BAM file" supported_formats="*.bam,*.sam,*.sam.bgzf,*.sam.gz,*.sam.bz2" required="true" advanced="false" />
+		</NODE>
+	</PARAMETERS>
+</tool>

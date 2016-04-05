@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool name="FlexcatDMulti" version="1.0.0 [31ccd8d]" docurl="http://www.seqan.de" category="NGS Quality Control" >
+	<executableName>flexcatDMulti</executableName>
+	<description>The SeqAn Demultiplexing Toolkit of Flexcat.</description>
+	<manual>This program is a sub-routine of Flexcat (a new implementation and extension of the original flexbar[1]) and can be used for demultiplexing of reads.
+[1] Dodt, M.; Roehr, J.T.; Ahmed, R.; Dieterich, C.  FLEXBAR   Flexible Barcode and Adapter Processing for Next-Generation Sequencing Platforms. Biology 2012, 1, 895-905.
+</manual>
+	<cli>
+		<clielement optionIdentifier="--showSpeed" isList="false">
+			<mapping referenceName="flexcatDMulti.showSpeed" />
+		</clielement>
+		<clielement optionIdentifier="--writeStats" isList="false">
+			<mapping referenceName="flexcatDMulti.writeStats" />
+		</clielement>
+		<clielement optionIdentifier="--records" isList="false">
+			<mapping referenceName="flexcatDMulti.records" />
+		</clielement>
+		<clielement optionIdentifier="--noQualities" isList="false">
+			<mapping referenceName="flexcatDMulti.noQualities" />
+		</clielement>
+		<clielement optionIdentifier="--ordered" isList="false">
+			<mapping referenceName="flexcatDMulti.ordered" />
+		</clielement>
+		<clielement optionIdentifier="--reads" isList="false">
+			<mapping referenceName="flexcatDMulti.reads" />
+		</clielement>
+		<clielement optionIdentifier="--threads" isList="false">
+			<mapping referenceName="flexcatDMulti.threads" />
+		</clielement>
+		<clielement optionIdentifier="--output" isList="false">
+			<mapping referenceName="flexcatDMulti.output" />
+		</clielement>
+		<clielement optionIdentifier="--noInfo" isList="false">
+			<mapping referenceName="flexcatDMulti.noInfo" />
+		</clielement>
+		<clielement optionIdentifier="--finalMinLength" isList="false">
+			<mapping referenceName="flexcatDMulti.finalMinLength" />
+		</clielement>
+		<clielement optionIdentifier="--finalLength" isList="false">
+			<mapping referenceName="flexcatDMulti.finalLength" />
+		</clielement>
+		<clielement optionIdentifier="--barcodes" isList="false">
+			<mapping referenceName="flexcatDMulti.barcodes" />
+		</clielement>
+		<clielement optionIdentifier="--multiplex" isList="false">
+			<mapping referenceName="flexcatDMulti.multiplex" />
+		</clielement>
+		<clielement optionIdentifier="--approximate" isList="false">
+			<mapping referenceName="flexcatDMulti.approximate" />
+		</clielement>
+		<clielement optionIdentifier="--hardClip" isList="false">
+			<mapping referenceName="flexcatDMulti.hardClip" />
+		</clielement>
+		<clielement optionIdentifier="--exclude" isList="false">
+			<mapping referenceName="flexcatDMulti.exclude" />
+		</clielement>
+		<!-- Following clielements are arguments. You should consider providing a help text to ease understanding. -->
+		<clielement optionIdentifier="" isList="true">
+			<mapping referenceName="flexcatDMulti.argument-0" />
+		</clielement>
+	</cli>
+	<PARAMETERS version="1.6.2" xsi:noNamespaceSchemaLocation="http://open-ms.sourceforge.net/schemas/Param_1_6_2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<NODE name="flexcatDMulti" description="The SeqAn Demultiplexing Toolkit of Flexcat.">
+			<ITEM name="showSpeed" value="false" type="string" description="Show speed in base pairs per second." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="writeStats" value="false" type="string" description="Write statistics into a file" restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="records" value="1000" type="int" description="Number of records to be read in one run. Adjust this so that one batch of read can fit into your CPU cache." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="noQualities" value="false" type="string" description="Force .fa format for output files." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="ordered" value="false" type="string" description="Keep reads in order. Needs -r 1 option to work properly." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="reads" value="" type="int" description="Process only first n reads." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="threads" value="1" type="int" description="Number of threads used." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="output" value="" type="output-prefix" description="Prefix and file ending of output files (prefix$.fa - $: placeholder which will be determined by the program.)." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="false" advanced="false" />
+			<ITEM name="noInfo" value="false" type="string" description="Don&apos;t print paramter overview to console." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="finalMinLength" value="" type="int" description="Deletes read (and mate) if on of them is shorter than the given value after the complete worflow." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="finalLength" value="0" type="int" description="Trims reads to desired length after the complete workflow." restrictions="0:" required="false" advanced="false" />
+			<ITEM name="barcodes" value="" type="input-file" description="FastA file containing the used barcodes and their IDs. Necessary for demutiplexing." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.embl,*.embl.bgzf,*.embl.gz,*.embl.bz2,*.gbk,*.gbk.bgzf,*.gbk.gz,*.gbk.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="false" advanced="false" />
+			<ITEM name="multiplex" value="" type="input-file" description="FastA/FastQ file containing the barcode for each read." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.embl,*.embl.bgzf,*.embl.gz,*.embl.bz2,*.gbk,*.gbk.bgzf,*.gbk.gz,*.gbk.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="false" advanced="false" />
+			<ITEM name="approximate" value="false" type="string" description="Select approximate barcode demultiplexing, allowing one mismatch." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="hardClip" value="false" type="string" description="Select hardClip option, clipping the first length(barcode) bases in any case." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="exclude" value="false" type="string" description="Exclude unidentified reads from further processing." restrictions="true,false" required="false" advanced="false" />
+			<ITEMLIST name="argument-0"  type="input-file" description="Either one (single-end) or two (paired-end) read files." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.embl,*.embl.bgzf,*.embl.gz,*.embl.bz2,*.gbk,*.gbk.bgzf,*.gbk.gz,*.gbk.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="true" advanced="false" />
+		</NODE>
+	</PARAMETERS>
+</tool>

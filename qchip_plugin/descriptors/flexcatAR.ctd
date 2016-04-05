@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool name="FlexcatAR" version="1.0.0 [31ccd8d]" docurl="http://www.seqan.de" category="NGS Quality Control" >
+	<executableName>flexcatAR</executableName>
+	<description>The Adapter Removal Toolkit of Flexcat.</description>
+	<manual>This program is a sub-routine of Flexcat (a new implementation and extension of the original flexbar[1]) and removes adapter sequences from reads.
+[1] Dodt, M.; Roehr, J.T.; Ahmed, R.; Dieterich, C.  FLEXBAR   Flexible Barcode and Adapter Processing for Next-Generation Sequencing Platforms. Biology 2012, 1, 895-905.
+</manual>
+	<cli>
+		<clielement optionIdentifier="--showSpeed" isList="false">
+			<mapping referenceName="flexcatAR.showSpeed" />
+		</clielement>
+		<clielement optionIdentifier="--writeStats" isList="false">
+			<mapping referenceName="flexcatAR.writeStats" />
+		</clielement>
+		<clielement optionIdentifier="--records" isList="false">
+			<mapping referenceName="flexcatAR.records" />
+		</clielement>
+		<clielement optionIdentifier="--noQualities" isList="false">
+			<mapping referenceName="flexcatAR.noQualities" />
+		</clielement>
+		<clielement optionIdentifier="--ordered" isList="false">
+			<mapping referenceName="flexcatAR.ordered" />
+		</clielement>
+		<clielement optionIdentifier="--reads" isList="false">
+			<mapping referenceName="flexcatAR.reads" />
+		</clielement>
+		<clielement optionIdentifier="--threads" isList="false">
+			<mapping referenceName="flexcatAR.threads" />
+		</clielement>
+		<clielement optionIdentifier="--output" isList="false">
+			<mapping referenceName="flexcatAR.output" />
+		</clielement>
+		<clielement optionIdentifier="--noInfo" isList="false">
+			<mapping referenceName="flexcatAR.noInfo" />
+		</clielement>
+		<clielement optionIdentifier="--finalMinLength" isList="false">
+			<mapping referenceName="flexcatAR.finalMinLength" />
+		</clielement>
+		<clielement optionIdentifier="--finalLength" isList="false">
+			<mapping referenceName="flexcatAR.finalLength" />
+		</clielement>
+		<clielement optionIdentifier="--adapters" isList="false">
+			<mapping referenceName="flexcatAR.adapters" />
+		</clielement>
+		<clielement optionIdentifier="--paired-adapterTrimming" isList="false">
+			<mapping referenceName="flexcatAR.paired-adapterTrimming" />
+		</clielement>
+		<clielement optionIdentifier="--errors" isList="false">
+			<mapping referenceName="flexcatAR.errors" />
+		</clielement>
+		<clielement optionIdentifier="--error rate" isList="false">
+			<mapping referenceName="flexcatAR.error rate" />
+		</clielement>
+		<clielement optionIdentifier="--overlap" isList="false">
+			<mapping referenceName="flexcatAR.overlap" />
+		</clielement>
+		<clielement optionIdentifier="--overhang" isList="false">
+			<mapping referenceName="flexcatAR.overhang" />
+		</clielement>
+		<clielement optionIdentifier="--times" isList="false">
+			<mapping referenceName="flexcatAR.times" />
+		</clielement>
+		<clielement optionIdentifier="--tag" isList="false">
+			<mapping referenceName="flexcatAR.tag" />
+		</clielement>
+		<!-- Following clielements are arguments. You should consider providing a help text to ease understanding. -->
+		<clielement optionIdentifier="" isList="true">
+			<mapping referenceName="flexcatAR.argument-0" />
+		</clielement>
+	</cli>
+	<PARAMETERS version="1.6.2" xsi:noNamespaceSchemaLocation="http://open-ms.sourceforge.net/schemas/Param_1_6_2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<NODE name="flexcatAR" description="The Adapter Removal Toolkit of Flexcat.">
+			<ITEM name="showSpeed" value="false" type="string" description="Show speed in base pairs per second." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="writeStats" value="false" type="string" description="Write statistics into a file" restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="records" value="1000" type="int" description="Number of records to be read in one run. Adjust this so that one batch of read can fit into your CPU cache." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="noQualities" value="false" type="string" description="Force .fa format for output files." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="ordered" value="false" type="string" description="Keep reads in order. Needs -r 1 option to work properly." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="reads" value="" type="int" description="Process only first n reads." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="threads" value="1" type="int" description="Number of threads used." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="output" value="" type="output-file" description="Name of the output file." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="false" advanced="false" />
+			<ITEM name="noInfo" value="false" type="string" description="Don&apos;t print paramter overview to console." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="finalMinLength" value="" type="int" description="Deletes read (and mate) if on of them is shorter than the given value after the complete worflow." restrictions="1:" required="false" advanced="false" />
+			<ITEM name="finalLength" value="0" type="int" description="Trims reads to desired length after the complete workflow." restrictions="0:" required="false" advanced="false" />
+			<ITEM name="adapters" value="" type="input-file" description="FastA file containing the two adapter sequences. The adapters according to the layout: 5&apos;-adapter1-read-adapter2-3&apos;." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.embl,*.embl.bgzf,*.embl.gz,*.embl.bz2,*.gbk,*.gbk.bgzf,*.gbk.gz,*.gbk.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="false" advanced="false" />
+			<ITEM name="paired-adapterTrimming" value="false" type="string" description="Trim adapters from paired-end reads without using reference adapters." restrictions="true,false" required="false" advanced="false" />
+			<ITEM name="errors" value="" type="int" description="Allowed errors in adapter detection." required="false" advanced="false" />
+			<ITEM name="error rate" value="0.2" type="double" description="Allowed errors per overlap in adapter detection." required="false" advanced="false" />
+			<ITEM name="overlap" value="4" type="int" description="Minimum length of overlap for a significant adapter match." required="false" advanced="false" />
+			<ITEM name="overhang" value="0" type="int" description="Number of bases that the adapter can stick over at the opposite end" required="false" advanced="false" />
+			<ITEM name="times" value="1" type="int" description="Do at maximum N iterations of adapter filtering. Every iteration the best matching adapter is removed." required="false" advanced="false" />
+			<ITEM name="tag" value="false" type="string" description="Tags IDs of sequences which had adapters removed." restrictions="true,false" required="false" advanced="false" />
+			<ITEMLIST name="argument-0"  type="input-file" description="Either one (single-end) or two (paired-end) read files." supported_formats="*.fq,*.fq.bgzf,*.fq.gz,*.fq.bz2,*.fastq,*.fastq.bgzf,*.fastq.gz,*.fastq.bz2,*.fa,*.fa.bgzf,*.fa.gz,*.fa.bz2,*.fasta,*.fasta.bgzf,*.fasta.gz,*.fasta.bz2,*.faa,*.faa.bgzf,*.faa.gz,*.faa.bz2,*.ffn,*.ffn.bgzf,*.ffn.gz,*.ffn.bz2,*.fna,*.fna.bgzf,*.fna.gz,*.fna.bz2,*.frn,*.frn.bgzf,*.frn.gz,*.frn.bz2,*.embl,*.embl.bgzf,*.embl.gz,*.embl.bz2,*.gbk,*.gbk.bgzf,*.gbk.gz,*.gbk.bz2,*.raw,*.raw.bgzf,*.raw.gz,*.raw.bz2" required="true" advanced="false" />
+		</NODE>
+	</PARAMETERS>
+</tool>
