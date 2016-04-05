@@ -1,1 +1,1 @@
-# KnimeNodes
+# knime_nodes
